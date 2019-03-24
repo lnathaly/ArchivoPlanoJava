@@ -16,6 +16,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,6 +28,45 @@ public class Inicio {
     //List<Persona> listaPersona;
     List<Reporte> listaReporte;
     List<Persona> listaPersona = new ArrayList<>();
+
+    public void menu() {
+        int opcion = 0;
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Bienvenido");
+        System.out.println("1. Ingresar");
+        System.out.println("2. Eliminar");
+        System.out.println("3. Mostrar");
+        System.out.print("Digite la Opcion: ");
+        opcion = entrada.nextInt();
+        Inicio ini = new Inicio();
+
+        switch (opcion) {
+            case 1:
+                ini.ingreserPersonaReporte();
+                break;
+            case 2: {
+                try {
+                    listaPersona = ini.leerArchivo("Documentos/archivo.txt");
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            ini.eliminaReporte(listaPersona);
+            break;
+            case 3: {
+                try {
+                    listaPersona = ini.leerArchivo("Documentos/archivo.txt");
+                } catch (Exception ex) {
+                    Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            ini.imprimepersona(listaPersona);
+
+            break;
+
+        }
+
+    }
 
     public void ingreserPersonaReporte() {
 

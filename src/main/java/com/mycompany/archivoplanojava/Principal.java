@@ -21,11 +21,6 @@ public class Principal {
     public static void main(String[] args) throws Exception {
 
         Inicio ini = new Inicio();
-        //ini.ingreserPersonaReporte();
-        List<Persona> listaPersona;
-        listaPersona = ini.leerArchivo("Documentos/archivo.txt");
-        //ini.imprimepersona(listaPersona);
-        //ini.escribirPersonaReporte();
-        ini.eliminaReporte(listaPersona);
+        ini.menu();
     }
 }
